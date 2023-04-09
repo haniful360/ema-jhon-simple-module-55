@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { addToDb, deleteShoppingCart, getShoppingCart } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
+import { AiOutlineArrowRight } from 'react-icons/ai';
 
 import Product from '../Product/Product';
 import './Shop.css'
+import { Link } from 'react-router-dom';
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
@@ -69,7 +71,14 @@ const Shop = () => {
                 }
             </div>
             <div className='cart-container'>
-                <Cart cart={cart} handleClearCart={handleClearCart}></Cart>
+                <Cart cart={cart} handleClearCart={handleClearCart}>
+                    <Link to='/orders'>
+                        <button className='review-proceed-btn'>
+                            <span>Review Order</span>
+                            <AiOutlineArrowRight className='icon'></AiOutlineArrowRight>
+                        </button>
+                    </Link> 
+                </Cart>
             </div>
         </div>
     );
