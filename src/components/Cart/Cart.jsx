@@ -2,7 +2,7 @@ import React from 'react';
 import { BsTrashFill } from 'react-icons/bs';
 import './Cart.css'
 const Cart = (props) => {
-    const { cart, handleClearCart } = props;
+    const { cart, handleClearCart , children} = props;
 
     // console.log(cart);
     let totalPrice = 0;
@@ -35,6 +35,7 @@ const Cart = (props) => {
                 <span>Clear Cart</span>
                 <BsTrashFill className='d-icon'></BsTrashFill>
             </button>
+            {children}
         </div>
     );
 };
